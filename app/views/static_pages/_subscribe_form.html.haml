@@ -1,0 +1,27 @@
+.row-fluid
+  .span12
+    %h3 Good morning Premium form.
+
+    = form_for @user do |f|
+      .field
+        = f.label :email
+        = f.text_field :email
+      .field
+        = f.label :password
+        = f.password_field :password
+      .field 
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation
+        = f.hidden_field :stripe_token
+      .field
+        = label_tag :card_number, "Credit Card Number "
+        = text_field_tag :card_number, nil, name: nil
+      .field
+        = label_tag :card_code, "Security Code on Card (CVV)"
+        = text_field_tag :card_code, nil, name: nil
+      .field
+        = label_tag :card_month, "Card Expiration"
+        = select_month nil, {add_month_numbers_true: true}, {name: nil, id: "card_month"}
+        = select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"}
+      .actions
+        = f.submit "Subscribe"

@@ -1,0 +1,28 @@
+- if current_user && current_user.account_type != 'paid'
+  %h1= "welcome back, #{current_user.email} (free)"
+
+- elsif current_user && current_user.account_type == 'paid'
+  %h1= "welcome back, #{current_user.email} (paid)"
+
+- else
+  %h1 welcome to datyr
+
+  = link_to "Sign Up Premium", "#", :remote => true, "data-toggle" => "modal", "data-target" => "#premium_modal"
+  = link_to "Sign Up Free", "#", :remote => true, "data-toggle" => "modal", "data-target" => "#free_modal"
+
+  #free_modal.modal.hide.fade
+    .modal-header
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+      %h3 New Free Account
+    .modal-body
+      = render "free_form"
+    .modal-footer
+
+  #premium_modal.modal.hide.fade
+    .modal-header
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+      %h3 New Premium Account
+    .modal-body
+      = render "subscribe_form"
+    .modal-footer
+      

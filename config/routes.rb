@@ -1,4 +1,27 @@
 Datyr::Application.routes.draw do
+  get "users/create"
+
+  get "users/index"
+
+  get "users/destroy"
+
+  get "users/show"
+
+  get "users/edit"
+
+  get "static_pages/index"
+
+  get "static_pages/_subscribe_form"
+
+  get "static_pages/_free_form"
+
+  resource :users, :only => [:new, :create, :show, :edit, :update]
+
+  resources :user_sessions
+
+  root to: 'static_pages#index'
+  match 'login' => 'user_sessions#new', :as => :login
+  match 'logout' => 'user_sessions#destroy', :as => :logout
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
