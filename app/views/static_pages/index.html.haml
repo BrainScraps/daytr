@@ -1,8 +1,8 @@
 - if current_user && current_user.account_type != 'paid'
-  %h1= "welcome back, #{current_user.email} (free)"
+  = render 'free_home'
 
 - elsif current_user && current_user.account_type == 'paid'
-  %h1= "welcome back, #{current_user.email} (paid)"
+  = render 'paid_home'
 
 - else
   %h1 welcome to datyr

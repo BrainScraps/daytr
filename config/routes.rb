@@ -1,4 +1,14 @@
 Datyr::Application.routes.draw do
+  get "photos/create"
+
+  get "photos/edit"
+
+  get "photos/view"
+
+  get "photos/delete"
+
+  get "photos/update"
+
   get "users/create"
 
   get "users/index"
@@ -22,6 +32,8 @@ Datyr::Application.routes.draw do
   root to: 'static_pages#index'
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
+
+  post 'photos' => 'photos#create', :as => 'create_photo'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

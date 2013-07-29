@@ -1,0 +1,9 @@
+%h1= "welcome back, #{current_user.email} (paid)"
+
+
+.row
+  .span12
+    = form_tag 'photos', :method => :post, :multipart => true do
+      = label_tag "Select a photo to upload: "
+      = file_field_tag :url
+      = submit_tag "Upload"

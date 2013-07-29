@@ -11,6 +11,7 @@ gem 'carrierwave'
 gem 'fog'
 gem 'stripe'
 gem 'sorcery'
+gem 'nokogiri', '~> 1.5.1'
 
 group :development do
   gem 'pry-rails'
