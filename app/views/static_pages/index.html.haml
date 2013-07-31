@@ -6,6 +6,11 @@
 
 - else
   %h1 welcome to datyr
+  #demo.row-fluid
+    #geooutput.span6.offset3
+      %p click on the button below to find out your approximate geolocation.
+      = link_to "Go!", "#", :id => "geogeo"
+
 
   = link_to "Sign Up Premium", "#", :remote => true, "data-toggle" => "modal", "data-target" => "#premium_modal"
   = link_to "Sign Up Free", "#", :remote => true, "data-toggle" => "modal", "data-target" => "#free_modal"
